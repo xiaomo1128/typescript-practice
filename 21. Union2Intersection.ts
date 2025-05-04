@@ -12,9 +12,12 @@
   //   : never;
 
   // 联合类型
+  // [U] extends [U] ? (arg: U) => void : never - 这一步始终返回 (arg: U) => void（这里使用数组包装是为了防止分布式条件类型的行为）
   type Union2Intersection<U> = (
     [U] extends [U] ? (arg: U) => void : never
   ) extends (arg: infer T) => void
     ? T
     : never;
+
+  // 什么是 分布式条件类型的行为？
 })();
