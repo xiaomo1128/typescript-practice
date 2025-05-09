@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.body.style.backgroundColor = "red";
+      console.log(1);
+      Promise.resolve().then(() => {
+        console.log(2);
+        document.body.style.backgroundColor = "blue"; // 渲染永远在微任务之后。
+      });
+      console.log(3);
+    </script>
+  </body>
+</html>
